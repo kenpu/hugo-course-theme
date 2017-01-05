@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{{.Site.BaseURL}}/css/style.css">
+    </head>
+    <body>
+        <!-- Styling from user space -->
+        {{range where .Site.Pages ".File.BaseFileName" "style"}}
+        {{.Content}}
+        {{end}}
+
+        <div class="container" type="index">
+
+            <!-- Header -->
+            <div class="header">
+                {{range where .Site.Pages ".File.BaseFileName" "header"}}
+                <div>{{.Content}}</div>
+                {{end}}
+            </div>
+
+            <!-- Lessons -->
+            <div class=lessons>
+                <h1> Lessons </h1>
+                {{range $index, $element := sort .Site.Sections.lessons ".Page.File.Path"}}
+                {{$p := $element.Page}}
+                <div class=lesson>
+                    <a href="{{$p.Permalink}}">
+                        <span class="index">{{add $index 1}}</span>
+                        <span class="title">{{$p.Title}}</span>
+                    </a>
+                </div>
+                {{end}}
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                {{range where .Site.Pages ".File.BaseFileName" "footer"}}
+                <div>{{.Content}}</div>
+                {{end}}
+            </div>
+        </div>
+    </body>
+</html>

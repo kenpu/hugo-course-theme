@@ -1,0 +1,17 @@
+@import url('bootstrap.css');
+@import url('fonts/fonts.css');
+@import url('font-awesome/css/font-awesome.min.css');
+
+h1 { font-size: 150%; }
+h2 { font-size: 130%; }
+h3 { font-size: 120%; }
+h4 { font-size: 110%; font-weight: bold; }
+h5 { font-size: 110%; font-weight: normal; }
+
+.header h1 {
+    color: black;
+}
+
+blockquote {
+    font-size: inherit;
+}
