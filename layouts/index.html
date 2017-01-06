@@ -2,13 +2,9 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="{{.Site.BaseURL}}/css/style.css">
+        <link rel="stylesheet" href="{{.Site.BaseURL}}/style.css">
     </head>
     <body>
-        <!-- Styling from user space -->
-        {{range where .Site.Pages ".File.BaseFileName" "style"}}
-        {{.Content}}
-        {{end}}
-
         <div class="container" type="index">
 
             <!-- Header -->
