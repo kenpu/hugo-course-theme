@@ -61,6 +61,14 @@ where we have:
 
     ...
 
+### Make a section vertical aligned to center
+
+    # Section here
+    
+    [!](middle)
+
+    ...
+
 ### Making a box
 
     > [!](box)
@@ -75,3 +83,6 @@ or just embed box command in a paragraph.
 
     <div pdf="url-to-pdf" scale="1.0"></div>
 
+### Scale the whole slide
+
+    [!](scale 0.80)
