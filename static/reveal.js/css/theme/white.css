@@ -3,6 +3,7 @@
  *
  * By Hakim El Hattab, http://hakim.se
  */
+@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
 section.has-dark-background, section.has-dark-background h1, section.has-dark-background h2, section.has-dark-background h3, section.has-dark-background h4, section.has-dark-background h5, section.has-dark-background h6 {
   color: #fff; }
 
@@ -15,11 +16,16 @@ body {
 
 .reveal {
   font-family: "Source Sans Pro", Helvetica, sans-serif;
-  font-size: 38px;
+  font-size: 42px;
   font-weight: normal;
   color: #222; }
 
 ::selection {
+  color: #fff;
+  background: #98bdef;
+  text-shadow: none; }
+
+::-moz-selection {
   color: #fff;
   background: #98bdef;
   text-shadow: none; }

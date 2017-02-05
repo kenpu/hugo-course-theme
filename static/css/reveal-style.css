@@ -187,3 +187,14 @@ code i.template span {
 .reveal section ul:last-child {
     margin-bottom: 0px;
 }
+
+/* ------ Kens Plugins ---------- */
+.reveal section div.slideshow {
+    position: relative;
+}
+.reveal section div.slideshow .fragment {
+    display: none;
+}
+.reveal section div.slideshow .fragment.current-fragment {
+    display: block;
+}
