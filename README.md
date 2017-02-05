@@ -1,5 +1,10 @@
 # A Hugo Template for course material
 
+## Site wide configuration
+
+    [params]
+    useSQL = true
+
 ## Features:
 
 ### Column splitting
@@ -86,3 +91,11 @@ or just embed box command in a paragraph.
 ### Scale the whole slide
 
     [!](scale 0.80)
+
+
+### Image animation
+
+    <div class="slide-show">
+        <... class="fragment" />
+        ...
+    </div>
