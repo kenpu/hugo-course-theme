@@ -37,7 +37,6 @@
         <div class="reveal" type="slide">
             <div class="slides" style="opacity: 0">{{.Content}}</div>
         </div>
-
         <div class="footnote" style="position: fixed; 
             bottom:0; 
             left:0;
@@ -46,7 +45,7 @@
             font-weight: 600;
             font-size: 12pt;
             color: #88a;">
-            <div class="btn-group btn-group-sm">
+            <div class="btn-group-vertical btn-group-sm">
                 <a href="#" class="btn btn-default cmd-fullscreen">
                     <i class="fa fa-arrows-alt"></i></a>
                 <a href="?print-pdf" class="btn btn-default cmd" style="color:red">
@@ -167,10 +166,12 @@
                 transition: "zoom",
                 transitionSpeed: "fast",
 
+                /*
                 chalkboard: { 
-                    // toggleChalkboardButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
-                    //toggleNotesButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
+                    toggleChalkboardButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
+                    toggleNotesButton: { left: "30px", bottom: "30px", top: "auto", right: "auto" },
                 },
+                */
 
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
@@ -181,11 +182,11 @@
                         callback: function() { hljs.initHighlightingOnLoad(); } 
                     },
                     {src: '{{.Site.BaseURL}}/reveal.js/plugin/hljslinenumber/index.js', async: true},
-                    // {src: '{{.Site.BaseURL}}/reveal.js/plugin/chalkboard/chalkboard.js', async: true },
                     {src: '{{.Site.BaseURL}}/reveal.js/plugin/math/math.js', async: true },
                     {src: '{{.Site.BaseURL}}/reveal.js/plugin/multicolumn/multicolumn.js', async: true },
                     {src: '{{.Site.BaseURL}}/reveal.js/plugin/kensextensions/main.js', async: true },
                     {src: '{{.Site.BaseURL}}/reveal.js/plugin/pdfviewer/pdfviewer.js', async: true},
+                    // {src: '{{.Site.BaseURL}}/reveal.js/plugin/chalkboard/chalkboard.js', async: true },
                 ],
 			});
             Reveal.addEventListener('ready', function() {
