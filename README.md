@@ -99,3 +99,21 @@ or just embed box command in a paragraph.
         <... class="fragment" />
         ...
     </div>
+
+### Fragmented lists
+
+    - [!](fragments)
+    - ..
+    - ..
+
+### No-bullets
+
+    - [!](nobullets)
+    - ..
+    - ...
+
+### Masonry
+
+    <div class="masonry" columns=3>
+        <... span=2 ...>
+    </div>

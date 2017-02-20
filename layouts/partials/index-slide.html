@@ -58,6 +58,7 @@
         </div>
 
         <script src="{{.Site.BaseURL}}/js/jquery-2.2.1.min.js"></script>
+        <script src="{{.Site.BaseURL}}/js/masonry.pkgd.min.js"></script>
         <script src="{{.Site.BaseURL}}/js/pdf.js"></script>
         <script src="{{.Site.BaseURL}}/js/clipboard.min.js"></script>
 
@@ -164,6 +165,7 @@
                 slideNumber: true,
                 center: false,
                 transition: "zoom",
+                // transition: "concave",
                 transitionSpeed: "fast",
 
                 /*
@@ -184,16 +186,17 @@
                     {src: '{{.Site.BaseURL}}/reveal.js/plugin/hljslinenumber/index.js', async: true},
                     {src: '{{.Site.BaseURL}}/reveal.js/plugin/math/math.js', async: true },
                     {src: '{{.Site.BaseURL}}/reveal.js/plugin/multicolumn/multicolumn.js', async: true },
-                    {src: '{{.Site.BaseURL}}/reveal.js/plugin/kensextensions/main.js', async: true },
+                    {src:
+                        '{{.Site.BaseURL}}/reveal.js/plugin/kensextensions/main.js', async: false },
                     {src: '{{.Site.BaseURL}}/reveal.js/plugin/pdfviewer/pdfviewer.js', async: true},
                     // {src: '{{.Site.BaseURL}}/reveal.js/plugin/chalkboard/chalkboard.js', async: true },
                 ],
 			});
-            Reveal.addEventListener('ready', function() {
+            Reveal.addEventListener('ready', function(e) {
                 console.debug("Ready to reveal");
                 $slides.animate({
                     opacity: 1.0,
-                });
+                }, 1000);
                 if(window.myEvents) myEventReady(window.myEvents);
             });
 
@@ -230,5 +233,6 @@
             }
         }
 		</script>
+        {{partial "tracking.html" .}}
 	</body>
 </html>
