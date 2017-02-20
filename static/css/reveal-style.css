@@ -205,3 +205,15 @@ body > .footnote:hover { opacity: 1.0; }
 .reveal section div.slideshow .fragment.current-fragment {
     display: block;
 }
+.reveal section .my-notes.fragment {
+    visibility: visible;
+    opacity: 0.1;
+}
+.reveal section .my-notes.fragment.visible {
+    opacity: 1.0;
+}
+.reveal section blockquote.boxed {
+    border-left: 0;
+    padding: 20px;
+    border: thin solid #aaa;
+}

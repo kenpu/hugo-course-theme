@@ -41,8 +41,20 @@
     // [!](note)
     // Gets the previous sibling, and wrap $a parent
     // in a two column row with fixed ratio
-    function processNote($a, ratio) {
-        var noteWidth = ratio ? parseInt(ratio, 10) : 4;
+    function processNote($a, args) {
+        var noteWidth = 4;
+        var fragment = false;
+
+        if(args) {
+            args.forEach(function(arg, i) {
+                if(arg.match(/\d+/)) {
+                    noteWidth = parseInt(arg, 10);
+                } else if(arg.match(/frag/)) {
+                    fragment = true;
+                }
+            });
+        }
+
         var mainWidth = 12 - noteWidth;
         // assume blockquote being the note container
         var note = $a.closest("blockquote");
@@ -51,7 +63,10 @@
         var sibling = note.prev();
         var row = $("<div>").addClass("row");
         var c1 = $("<div>").addClass("col-xs-" + mainWidth).appendTo(row);
-        var c2 = $("<div>").addClass("my-notes col-xs-" + noteWidth).appendTo(row);
+        var c2 = $("<div>").addClass("my-notes col-xs-" + noteWidth);
+        if(fragment) c2.addClass("fragment");
+        c2.appendTo(row);
+
         note.after(row);
         note.detach().appendTo(c2);
         sibling.detach().appendTo(c1);
@@ -130,15 +145,29 @@
         }
         // =========================================
         else if(cmd[0] == "box") {
-            $a.parent().css({
-                border: "thin solid #aaa",
-                padding: 20,
-            });
+            var div = $a.closest("blockquote");
+            var frag = false;
+
+            if(cmd.length > 1 && cmd[1].match(/frag/)) {
+                frag = true;
+            }
+
+            // box a blockquote
+            if(div.size() > 0) {
+                div.addClass("boxed");
+            } else {
+                div = $a.parent().css({
+                    border: "thin solid #aaa",
+                    padding: 20,
+                });
+            }
+            if(frag) div.addClass("fragment");
+
             $a.detach();
         }
         // =========================================
         else if(cmd[0] == "note") {
-            processNote($a, (cmd.length > 1) ? cmd[1] : "");
+            processNote($a, (cmd.length > 1) ? cmd.slice(1) : null);
             $a.detach();
         }
         // =========================================

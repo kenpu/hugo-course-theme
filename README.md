@@ -23,6 +23,9 @@ Embed it in a blockquote:
     > [!](note)
     > My message here
 
+Control the column width of the note
+
+    [!](note 3) ...
 
 Another way of using it:
 
@@ -76,7 +79,7 @@ where we have:
 
 ### Making a box
 
-    > [!](box)
+    > [!](box [fragment])
     >
     > ...
 
@@ -105,6 +108,10 @@ or just embed box command in a paragraph.
     - [!](fragments)
     - ..
     - ..
+
+### Fragment note
+
+    [!](note fragment) ...
 
 ### No-bullets
 
