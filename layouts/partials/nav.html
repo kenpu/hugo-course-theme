@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default navbar-fixed-top hidden-xs">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="{{.Site.BaseURL}}" style="color: crimson">
+          <i class="fa fa-bar-chart"></i>
+          <span style="font-family: ETBembo; font-style: italic; margin-left: 10px">{{.Site.Title}}</span>
+      </a>
+    </div>
+
+    <ul class="nav navbar-nav pull-right">
+        <li><a href="{{.Site.BaseURL}}lessons">Lessons</a></li>
+        <li><a href="{{.Site.BaseURL}}about">About Us</a></li>
+    </ul>
+  </div><!-- /.container-fluid -->
+</nav>
+
+<style>
+a.navbar-brand {
+    opacity: 0.6;
+}
+a.navbar-brand:hover {
+    opacity: 1.0;
+}
+</style>

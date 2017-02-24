@@ -1,1 +1,6 @@
+{{if eq .Section "lessons"}}
 {{ partial "index-slide.html" . }}
+{{else}}
+{{ partial "index-page.html" . }}
+{{end}}
+

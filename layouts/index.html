@@ -1,40 +1,125 @@
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="{{.Site.BaseURL}}/css/style.css">
-        <link rel="stylesheet" href="{{.Site.BaseURL}}/style.css">
-        <script src="{{.Site.BaseURL}}/js/jquery-2.2.1.min.js"></script>
+        {{partial "head.html"}}
+        <style>
+            .typed-cursor {
+                font-weight: bold;
+                color: crimson;
+            }
+        </style>
     </head>
     <body>
-        <div class="container" type="index">
-
-            <!-- Header -->
-            <div class="header">
-                {{range where .Site.Pages ".File.BaseFileName" "header"}}
-                <div>{{.Content}}</div>
-                {{end}}
-            </div>
-
-            <!-- Lessons -->
-            <div class=lessons>
-                <ol>
-                {{range $index, $element := sort .Site.Sections.lessons ".Page.File.Path"}}
-                {{$p := $element.Page}}
-                <li class=lesson>
-                    <a href="{{$p.Permalink}}">
-                        <span class="title">{{$p.Title}}</span>
-                    </a>
-                </li>
-                {{end}}
-            </ol>
-            </div>
-
-            <!-- Footer -->
-            <div class="footer">
-                {{range where .Site.Pages ".File.BaseFileName" "footer"}}
-                <div>{{.Content}}</div>
-                {{end}}
-            </div>
+        {{partial "nav.html" .}}
+        <div id="particles" 
+            style="position: fixed;
+                   width: 100%;
+                   height: 100%;
+                   left: 0;
+                   top: 0;
+                   z-index: -1;">
         </div>
+        <div style="position: fixed;
+                   width: 100%;
+                   height: 100%;
+                   left: 0;
+                   top: 0;
+                   display: flex;
+                   align-items: center;
+                   justify-content: center;
+                   font-size: 200%;
+                   font-family: Roboto;
+                   font-weight: 200;">
+            <a href="lessons"
+                class="intro">Start</a>
+        </div>
+        {{partial "footer.html" .}}
+        <script src="{{.Site.BaseURL}}/js/particles.min.js"></script>
+        <script>
+            var particles = {
+                "particles": {
+                  "number": {
+                    "value": 80,
+                    "density": {
+                      "enable": true,
+                      "value_area": 800
+                    }
+                  },
+                  "color": {
+                    "value": "#a00"
+                  },
+                  "shape": {
+                    "type": "circle",
+                    "stroke": {
+                      "width": 0,
+                      "color": "#000000"
+                    },
+                    "polygon": {
+                      "nb_sides": 5
+                    },
+                    "image": {
+                      "src": "img/github.svg",
+                      "width": 100,
+                      "height": 100
+                    }
+                  },
+                  "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                      "enable": false,
+                      "speed": 1,
+                      "opacity_min": 0.1,
+                      "sync": false
+                    }
+                  },
+                  "size": {
+                    "value": 5,
+                    "random": true,
+                    "anim": {
+                      "enable": false,
+                      "speed": 40,
+                      "size_min": 0.1,
+                      "sync": false
+                    }
+                  },
+                  "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#aaa",
+                    "opacity": 0.4,
+                    "width": 1
+                  },
+                  "move": {
+                    "enable": true,
+                    "speed": 6,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "attract": {
+                      "enable": false,
+                      "rotateX": 600,
+                      "rotateY": 1200
+                    }
+                  }
+                },
+                "retina_detect": true,
+                "config_demo": {
+                  "hide_card": false,
+                  "background_color": "#b61924",
+                  "background_image": "",
+                  "background_position": "50% 50%",
+                  "background_repeat": "no-repeat",
+                  "background_size": "cover"
+                }
+            };
+            window.particlesJS("particles", particles);
+        </script>
+        <script src="{{.Site.BaseURL}}/js/typed.min.js"></script>
+        <script>
+            $(".intro").typed({
+                strings: ["Get Started, <strong>now</strong>..."],
+            });
+        </script>
     </body>
 </html>
